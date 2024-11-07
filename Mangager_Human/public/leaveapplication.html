@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng kí nghỉ phép</title>
+    <link rel="stylesheet" href="leaveapplication.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">Logo công ty</div>
+      <div class="search-bar-container">
+        <input type="text" class="search-bar" placeholder="Search" />
+        <button class="search-button">🔍</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="profile-info">
+          <img src="avatar.png" alt="" class="avatar" />
+          <p>Nhân viên A</p>
+        </div>
+        <ul class="menu">
+          <li><a href="profile.html">Thông tin cá nhân</a></li>
+          <li><a href="checkin.html">Check in/Check out</a></li>
+          <li><a href="attendancehistory.html">Lịch sử chấm công</a></li>
+          <li><a href="errorreport.html">Báo cáo lỗi chấm công</a></li>
+          <li><a href="#" class="active">Đăng kí nghỉ phép</a></li>
+          <li><a href="ot.html">Đơn đăng kí tăng ca</a></li>
+          <li><a href="#">Đăng xuất</a></li>
+        </ul>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <h2>Đơn xin nghỉ phép</h2>
+        <form class="leave-request-form" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label for="reason">Lý do</label>
+            <input type="text" id="reason" />
+          </div>
+          <div class="form-group">
+            <label for="shift">Ca</label>
+            <input type="text" id="shift" />
+          </div>
+          <div class="form-group">
+            <label for="start-date">Từ ngày</label>
+            <input type="date" id="start-date" />
+          </div>
+          <div class="form-group">
+            <label for="end-date">Đến ngày</label>
+            <input type="date" id="end-date" />
+          </div>
+          <div class="form-group">
+            <label for="department">Đơn vị công tác</label>
+            <input type="text" id="department" />
+          </div>
+          <div class="form-group full-width">
+            <label for="description">Mô tả</label>
+            <textarea id="description" rows="4"></textarea>
+          </div>
+          <div class="button-group">
+            <button type="submit" class="submit-button">Gửi</button>
+            <button type="reset" class="cancel-button">Hủy bỏ</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function submitForm(event) {
+        event.preventDefault();
+
+        // Lấy dữ liệu từ form
+        const formData = {
+          reason: document.getElementById("reason").value,
+          shift: document.getElementById("shift").value,
+          startDate: document.getElementById("start-date").value,
+          endDate: document.getElementById("end-date").value,
+          department: document.getElementById("department").value,
+          description: document.getElementById("description").value,
+        };
+
+        // Lưu dữ liệu vào localStorage
+        localStorage.setItem("leaveApplicationData", JSON.stringify(formData));
+
+        // Chuyển hướng đến trang leaveapplication2.html
+        window.location.href = "leaveapplication2.html";
+      }
+    </script>
+  </body>
+</html>

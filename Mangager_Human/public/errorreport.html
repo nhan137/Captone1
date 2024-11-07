@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Báo cáo lỗi chấm công</title>
+    <link rel="stylesheet" href="errorreport.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">Logo công ty</div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search" />
+        <button>🔍</button>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="profile">
+        <img src="avatar.png" alt="" class="avatar" />
+        <p>Nhân viên A</p>
+      </div>
+      <ul class="menu">
+        <li><a href="profile.html">Thông tin cá nhân</a></li>
+        <li><a href="checkin.html">Check in/Check out</a></li>
+        <li><a href="attendancehistory.html">Lịch sử chấm công</a></li>
+        <li class="active">Báo cáo lỗi chấm công</li>
+        <li><a href="leaveapplication.html">Đăng kí nghỉ phép</a></li>
+        <li><a href="ot.html"></a>Đơn đăng kí tăng ca</li>
+        <li>Đăng xuất</li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <h2>Báo cáo lỗi chấm công</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tên Nhân viên</th>
+            <th>Mã nhân viên</th>
+            <th>Mô tả lỗi</th>
+            <th>Tệp đính kèm</th>
+            <th>Ngày gửi báo cáo</th>
+            <th>Trạng thái xử lý</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows of report data go here -->
+          <tr>
+            <td>Nguyễn Văn A</td>
+            <td>NV001</td>
+            <td>Lỗi chấm công</td>
+            <td><a href="#">file.pdf</a></td>
+            <td>01/10/2024</td>
+            <td>Đang xử lý</td>
+          </tr>
+          <!-- Add more rows as necessary -->
+        </tbody>
+      </table>
+      <div class="buttons">
+        <button class="submit-button">Gửi</button>
+        <button class="cancel-button">Hủy bỏ</button>
+      </div>
+    </div>
+  </body>
+</html>
