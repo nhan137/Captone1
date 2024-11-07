@@ -94,7 +94,7 @@ INSERT INTO `employee` (`EmployeeID`, `Username`, `Password`, `FirstName`, `Last
 CREATE TABLE `leaverequest` (
   `LeaveRequestID` int(11) NOT NULL,
   `EmployeeID` int(11) DEFAULT NULL,
-  `StartDate` date DEFAULT NULL,
+  `StartDate` datpushe DEFAULT NULL,
   `EndDate` date DEFAULT NULL,
   `Reason` text DEFAULT NULL,
   `ApprovedBy` varchar(50) DEFAULT NULL,
