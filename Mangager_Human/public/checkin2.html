@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check-in Confirmation</title>
+    <link rel="stylesheet" href="attendancehistory.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">Logo công ty</div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search" />
+        <button>🔍</button>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="profile">
+        <img src="avatar.png" alt="" class="avatar" />
+        <p>Nhân viên A</p>
+      </div>
+      <ul class="menu">
+        <li><a href="profile.html">Thông tin cá nhân</a></li>
+        <li class="active">Check in/Check out</li>
+        <li><a href="attendancehistory.html">lịch sử chấm công</a></li>
+        <li><a href="errorreport.html">Báo cáo lỗi chấm công</a></li>
+        <li><a href="leaveapplication.html">Đăng kí nghỉ phép</a></li>
+        <li><a href="ot.html"></a>Đơn đăng kí tăng ca</li>
+        <li>Đăng xuất</li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <div class="header">
+        <button class="checkin-button">CHECKIN-CHECKOUT</button>
+        <h2>Hệ thống xác nhận checkin</h2>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Mã Nhân Viên</th>
+            <th>Tên Nhân Viên</th>
+            <th>Vị trí check in</th>
+            <th>Thời gian check in</th>
+            <th>Định vị GPS</th>
+          </tr>
+        </thead>
+        <tbody id="attendance-table-body">
+          <!-- Rows will be added dynamically -->
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      // Load and display check-in data when page loads
+      window.onload = function () {
+        // Get check-in data from localStorage
+        const checkinData = JSON.parse(localStorage.getItem("checkinData"));
+
+        if (checkinData) {
+          const tableBody = document.getElementById("attendance-table-body");
+
+          // Create new row
+          const row = document.createElement("tr");
+
+          // Add cells with data
+          row.innerHTML = `
+                    <td>${checkinData.employeeId}</td>
+                    <td>${checkinData.employeeName}</td>
+                    <td>Văn phòng công ty</td>
+                    <td>${checkinData.checkinTime}</td>
+                    <td>${checkinData.gpsLocation}</td>
+                `;
+
+          // Add row to table
+          tableBody.appendChild(row);
+        }
+      };
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

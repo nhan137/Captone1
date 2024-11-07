@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Đăng Nhập</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <!-- Thanh điều hướng -->
+    <div class="navbar">
+      <div class="logo">Logo company</div>
+      <div class="menu">
+
+        <a href="#">Trang chủ</a>
+        <a href="#">Về chúng tôi</a>
+        <a href="#">Liên Hệ</a>
+        <button class="language-button">Tiếng Việt</button>
+        <a href="#" class="login-button">Đăng Nhập</a>
+      </div>
+    </div>
+
+    <!-- Giao diện Đăng Nhập -->
+    <div class="login-form">
+      <h2>Đăng Nhập</h2>
+      <form id="loginForm">
+        <label for="username">Tên người dùng</label>
+        <input type="text" id="username" placeholder="Nhập tên người dùng" required />
+        
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" placeholder="Nhập mật khẩu" required />
+
+        <button type="submit">Đăng Nhập</button>
+        <a href="#" class="forgot-password" onclick="showForgotPassword()">Quên mật khẩu?</a>
+      </form>
+      <p id="message"></p>
+    </div>
+
+    <!-- Thông báo -->
+    <div id="notification" class="notification" style="display: none;">
+      <span id="notification-message"></span>
+      <button onclick="closeNotification()">Đóng</button>
+    </div>
+
+    <!-- Giao diện Quên Mật Khẩu - Bước 1 -->
+    <div class="login-container" id="forgot-password-step1" style="display: none;">
+      <h2>Quên Mật Khẩu</h2>
+      <form id="forgotPasswordForm">
+        <label for="forgotEmail">Nhập Email/SĐT</label>
+        <input type="text" id="forgotEmail" placeholder="Nhập email của bạn" required />
+        <button type="submit">Xác nhận</button>
+      </form>
+      <p id="forgotMessage"></p>
+    </div>
+
+    <!-- Giao diện Quên Mật Khẩu - Bước 2 -->
+    <div class="login-form" id="forgot-password-step2" style="display: none;">
+      <h2>Quên Mật Khẩu</h2>
+      <form id="verifyCodeForm">
+        <label for="verificationCode">Nhập mã code</label>
+        <input type="text" id="verificationCode" placeholder="Nhập mã xác nhận" required />
+        <button type="submit">Xác nhận</button>
+      </form>
+    </div>
+
+    <!-- Giao diện Đặt lại Mật Khẩu -->
+    <div class="login-form" id="reset-password" style="display: none;">
+      <h2>Đặt lại mật khẩu</h2>
+      <form id="resetPasswordForm">
+        <label for="new-password">Mật khẩu mới:</label>
+        <div class="password-input">
+          <input type="password" id="newPassword" placeholder="Nhập mật khẩu mới" required />
+          <span class="toggle-password" onclick="togglePasswordVisibility('newPassword')">👁️</span>
+        </div>
+
+        <label for="confirm-password">Xác nhận mật khẩu mới:</label>
+        <div class="password-input">
+          <input type="password" id="confirmPassword" placeholder="Xác nhận mật khẩu mới" required />
+          <span class="toggle-password" onclick="togglePasswordVisibility('confirmPassword')">👁️</span>
+        </div>
+
+        <button type="submit">Đặt lại mật khẩu</button>
+      </form>
+      <p id="resetMessage"></p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/author.js"></script>
+  </body>
+</html>
