@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json'); // Đảm bảo rằng API trả về JSON
 
-require_once '../fuctions/auth.php'; // Đảm bảo đường dẫn là chính xác
+require_once '../auth.php'; // Đảm bảo đường dẫn là chính xác
 
 if ($_GET['action'] === 'login') {
     $username = $_POST['username'] ?? '';
