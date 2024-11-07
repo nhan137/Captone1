@@ -1,5 +1,5 @@
 <?php
-require_once '../models/config.php';
+require_once '../api/models/config.php';
 require_once '../api/functions/auth.php'; // Đảm bảo đường dẫn là chính xác
 
 header('Content-Type: application/json');  // Đảm bảo rằng API trả về JSON

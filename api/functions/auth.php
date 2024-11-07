@@ -1,5 +1,5 @@
 <?php
-require_once '../models/config.php';
+require_once '../api/models/config.php';
 
 function login($username, $password) {
     global $pdo;
