@@ -1,6 +1,6 @@
 <?php
 // Nhập mật khẩu bạn muốn mã hóa
-$password = 'admin';
+$password = 'nhannguyen';
 
 // Mã hóa mật khẩu
 $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
