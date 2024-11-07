@@ -10,7 +10,8 @@ function login($username, $password) {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Kiểm tra mật khẩu
-    if ($user && password_verify($password, $user['Password'])) {
+    // if ($user && password_verify($password, $user['Password'])) {
+    if ($user && $password === $user['Password']) {
         return [
             'status' => 'success',
             'message' => 'Login successful',

@@ -9,7 +9,12 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); // Đọc phản hồi dưới dạng JSON
+    })
     .then(data => {
         document.getElementById('message').textContent = data.message;
         if (data.status === 'success') {
