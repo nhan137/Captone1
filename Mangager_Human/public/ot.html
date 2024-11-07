@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký tăng Ca</title>
+    <link rel="stylesheet" href="ot.css" />
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Logo công ty</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <button>🔍</button>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="profile">
+            <img src="avatar.png" alt="" class="avatar">
+            <p>Nhân viên A</p>
+        </div>
+        <ul class="menu">
+            <li><a href="profile.html" class="active">Thông tin cá nhân</a></li>
+            <!-- <li onclick="showSection('personal-info')">Thông tin cá nhân</li> -->
+            <li><a href="checkin.html" class="active">check in/check out</a></li>
+            <li><a href="attendancehistory.html" class="active">attendance history</li>
+            <li><a href="errorreport.html">Báo cáo lỗi chấm công</a></li>
+            <li><a href="leaveapplication.html">Đăng kí nghỉ phép</a></li>
+            <li class="active">Đơn đăng kí tăng ca</li>
+            <li>Đăng xuất</li>
+        </ul>
+    </div>
+    <div class="container">
+        <h2>Đơn đăng kí tăng ca</h2>
+        
+        <div class="form-container">
+            <div class="form-group">
+                <label for="shift">Ca:</label>
+                <input type="text" id="shift">
+            </div>
+            <div class="form-group">
+                <label for="time">Thời gian:</label>
+                <input type="text" id="time">
+            </div>
+            <div class="form-group">
+                <label for="date">Ngày:</label>
+                <input type="text" id="date">
+            </div>
+            <div class="form-group">
+                <label for="department">Đơn vị công tác:</label>
+                <input type="text" id="department">
+            </div>
+            <div class="form-group">
+                <label for="description">Mô tả:</label>
+                <textarea id="description" rows="3"></textarea>
+            </div>
+            <div class="btn-group">
+                <button class="btn-submit" onclick="submitForm()">Gửi</button>
+                <button class="btn-cancel" onclick="cancelForm()">Hủy bỏ</button>
+            </div>
+        </div>
+        <div class="table-container">
+            <table id="overtimeTable">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã Nhân Viên</th>
+                        <th>Họ và Tên</th>
+                        <th>Ca</th>
+                        <th>Thời gian</th>
+                        <th>Ngày</th>
+                        <th>Đơn vị công tác</th>
+                        <th>Mô tả</th>
+                        <th>Trạng thái duyệt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        let count = 1;
+    
+        function submitForm() {
+            const shift = document.getElementById("shift").value;
+            const time = document.getElementById("time").value;
+            const date = document.getElementById("date").value;
+            const department = document.getElementById("department").value;
+            const description = document.getElementById("description").value;
+    
+            const table = document.getElementById("overtimeTable").getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+    
+            newRow.innerHTML = `
+                <td>${count++}</td>
+                <td>NV001</td>
+                <td>Nhân viên A</td>
+                <td>${shift}</td>
+                <td>${time}</td>
+                <td>${date}</td>
+                <td>${department}</td>
+                <td>${description}</td>
+                <td>Chưa duyệt</td>
+            `;
+    
+            // Clear form fields after submission
+            document.getElementById("shift").value = "";
+            document.getElementById("time").value = "";
+            document.getElementById("date").value = "";
+            document.getElementById("department").value = "";
+            document.getElementById("description").value = "";
+        }
+    
+        function cancelForm() {
+            document.getElementById("shift").value = "";
+            document.getElementById("time").value = "";
+            document.getElementById("date").value = "";
+            document.getElementById("department").value = "";
+            document.getElementById("description").value = "";
+        }
+    </script>
+</body>
+</html>
